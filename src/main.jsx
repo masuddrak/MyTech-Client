@@ -6,8 +6,9 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Layout from './Layout/Layout';
-import Home from './Pages/Home';
+
 import ProductDetails from './Pages/ProductDetails';
+import Home from './Pages/HomePage/Home';
 
 const router = createBrowserRouter([
   {

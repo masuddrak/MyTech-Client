@@ -2,7 +2,7 @@ import { Outlet } from "react-router-dom";
 import SubNavber from "../shared/SubNavber";
 import Navber from "../shared/Navber";
 import Submenu from "../shared/Submenu";
-import Footer from "../components/Footer";
+import Footer from "../shared/Footer";
 
 
 const Layout = () => {

@@ -1,7 +1,8 @@
 import { IoMdSearch } from "react-icons/io";
 import logo from "../assets/logo.png"
 import { FiGift } from "react-icons/fi";
- import './Nav.css'
+import PrimaryBtn from "./Buttons/PrimaryBtn";
+
 const Navber = () => {
     return (
         <nav className="max-w-[1320px] mx-auto grid grid-cols-9 justify-between items-center gap-8  py-4 ">
@@ -35,7 +36,7 @@ const Navber = () => {
                     </div>
                 </div>
                 <div>
-                    <button className="primary-btn">PC Builder</button>
+                    <PrimaryBtn name="Login"></PrimaryBtn>
                 </div>
                 
             </div>

@@ -1,15 +1,15 @@
 import FeaturedCard from "./FeaturedCard";
-import image1 from "../../assets/featured/ac-48x48.png"
-import image2 from "../../assets/featured/action-camera-48x48.png"
+import image1 from "../../../assets/featured/ac-48x48.png"
+import image2 from "../../../assets/featured/action-camera-48x48.png"
 
-import image3 from "../../assets/featured/drone-48x48.png"
-import image4 from "../../assets/featured/earbuds-48x48.png"
-import image5 from "../../assets/featured/gimbal-48x48.png"
-import image6 from "../../assets/featured/laptop-48x48.png"
-import image7 from "../../assets/featured/mobile-phone-accessories-48x48.png"
-import image8 from "../../assets/featured/powerstation-48x48.png"
-import image9 from "../../assets/featured/tv-48x48.png"
-import image10 from "../../assets/featured/vr-48x48.png"
+import image3 from "../../../assets/featured/drone-48x48.png"
+import image4 from "../../../assets/featured/earbuds-48x48.png"
+import image5 from "../../../assets/featured/gimbal-48x48.png"
+import image6 from "../../../assets/featured/laptop-48x48.png"
+import image7 from "../../../assets/featured/mobile-phone-accessories-48x48.png"
+import image8 from "../../../assets/featured/powerstation-48x48.png"
+import image9 from "../../../assets/featured/tv-48x48.png"
+import image10 from "../../../assets/featured/vr-48x48.png"
 const Featured = () => {
     return (
         <div>

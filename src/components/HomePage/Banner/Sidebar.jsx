@@ -1,5 +1,5 @@
 import { IoMdSearch } from "react-icons/io";
-import subscrib_image from '../assets/subscrip.webp';
+import subscrib_image from '../../../assets/subscrip.webp';
 const Sidebar = () => {
     return (
         <div className="flex flex-col justify-between h-full">
