@@ -2,6 +2,7 @@ import { IoMdSearch } from "react-icons/io";
 import logo from "../assets/logo.png"
 import { FiGift } from "react-icons/fi";
 import PrimaryBtn from "./Buttons/PrimaryBtn";
+import { Link } from "react-router-dom";
 
 const Navber = () => {
     return (
@@ -36,7 +37,7 @@ const Navber = () => {
                     </div>
                 </div>
                 <div>
-                    <PrimaryBtn name="Login"></PrimaryBtn>
+                    <Link to="/signIn"><PrimaryBtn name="Login"></PrimaryBtn></Link>
                 </div>
                 
             </div>
