@@ -1,10 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from 'axios'
-const useAllProduct = () => {
-    const { data: products = [],refetch,isLoading } = useQuery({
-        queryKey: [],
+const useAllProduct = (selectedPage, perpageItem) => {
+    const { data: products = [],refetch,isLoading} = useQuery({
+        queryKey: ["all-producs",selectedPage,perpageItem],
         queryFn: async () => {
-            const { data } = await axios("http://localhost:5000/products")
+            const { data } = await axios(`http://localhost:5000/products?page=${selectedPage}&size=${perpageItem}`)
             return data
         }
     })

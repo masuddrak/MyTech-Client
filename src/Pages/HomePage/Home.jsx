@@ -2,7 +2,7 @@ import Storege from "../../components/CommonCard/Storege";
 import Banner from "../../components/HomePage/Banner/Banner";
 import Category from "../../components/HomePage/Category/Category";
 import Featured from "../../components/HomePage/featured/Featured";
-import Products from "../../components/Products/Products";
+
 
 
 const Home = () => {
@@ -23,9 +23,9 @@ const Home = () => {
       <div className="py-6">
         <Storege></Storege>
       </div>
-      {/* all products */}
+      {/* feature product */}
       <div className="py-6">
-        <Products></Products>
+        
       </div>
     </div>
   );
