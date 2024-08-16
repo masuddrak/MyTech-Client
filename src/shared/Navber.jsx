@@ -3,8 +3,11 @@ import logo from "../assets/logo.png"
 import { FiGift } from "react-icons/fi";
 import PrimaryBtn from "./Buttons/PrimaryBtn";
 import { Link } from "react-router-dom";
+import useAuth from "../Hooks/useAuth";
 
 const Navber = () => {
+    const {user,logOut}=useAuth()
+    console.log(user?.email)
     return (
         <nav className="max-w-[1320px] mx-auto grid grid-cols-9 justify-between items-center gap-8  py-4 ">
             <div className="h-[52px] col-span-1">
@@ -37,7 +40,10 @@ const Navber = () => {
                     </div>
                 </div>
                 <div>
-                    <Link to="/signIn"><PrimaryBtn name="Login"></PrimaryBtn></Link>
+                    {
+                        user?<button onClick={()=>logOut()}>logout</button>:<Link to="/signIn"><PrimaryBtn name="Login"></PrimaryBtn></Link>
+                    }
+                    
                 </div>
                 
             </div>

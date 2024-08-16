@@ -3,7 +3,7 @@ import { FcGoogle } from 'react-icons/fc'
 
 import toast from 'react-hot-toast'
 import { TbFidgetSpinner } from 'react-icons/tb'
-import { imageUpload } from '../../utils'
+
 import useAuth from '../../Hooks/useAuth'
 
 const SignUp = () => {
@@ -22,19 +22,19 @@ const SignUp = () => {
     const name = form.name.value
     const email = form.email.value
     const password = form.password.value
-    const image = form.image.files[0]
+  
 
     try {
       setLoading(true)
       // 1. Upload image and get image url
-      const image_url = await imageUpload(image)
-      console.log(image_url)
+     
+      
       //2. User Registration
       const result = await createUser(email, password)
       console.log(result)
 
       // 3. Save username and photo in firebase
-      await updateUserProfile(name, image_url)
+      await updateUserProfile(name)
       navigate('/')
       toast.success('Signup Successful')
     } catch (err) {
@@ -78,18 +78,7 @@ const SignUp = () => {
                 data-temp-mail-org='0'
               />
             </div>
-            <div>
-              <label htmlFor='image' className='block mb-2 text-sm'>
-                Select Image:
-              </label>
-              <input
-                required
-                type='file'
-                id='image'
-                name='image'
-                accept='image/*'
-              />
-            </div>
+          
             <div>
               <label htmlFor='email' className='block mb-2 text-sm'>
                 Email address
