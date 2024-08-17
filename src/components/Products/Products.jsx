@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 
 import useAllProduct from "../../Hooks/useAllProduct";
 
+
 const Products = ({
+  searchText,
   selectedPage,
   perpageItem,
   handelPage,
@@ -12,7 +14,7 @@ const Products = ({
   pages,
   setSelectedPage
 }) => {
-  const { products, isLoading } = useAllProduct(selectedPage, perpageItem);
+  const { products, isLoading } = useAllProduct(selectedPage, perpageItem,searchText);
 
   if (isLoading) {
     return <h1 className="3xl font-extrabold">Loading...........</h1>;
@@ -35,10 +37,10 @@ const Products = ({
       {/*  */}
       <div className="my-4">
         <div className="flex justify-center my-4">
-          <div>
+          <div className="space-x-2">
             <button
               onClick={handelPreviusPage}
-              className="btn bg-neutral-800 mx-2 px-2 text-white"
+              className="bg-[#081621] text-white px-2 "
             >
               previus
             </button>
@@ -48,8 +50,8 @@ const Products = ({
                 onClick={() => setSelectedPage(page)}
                 className={
                   selectedPage === page
-                    ? "btn base-color mx-2 px-2 "
-                    : "btn bg-neutral-800 mx-2 px-2 text-white"
+                    ? " base-color  px-2  "
+                    : " bg-neutral-800  px-2  text-white"
                 }
               >
                 {page}
@@ -57,15 +59,15 @@ const Products = ({
             ))}
             <button
               onClick={handelNextPage}
-              className="btn bg-neutral-800 mx-2 px-2 text-white"
+              className="bg-[#081621] text-white px-2 "
             >
-              Next
+             Next
             </button>
             <select
               name="item"
               value={perpageItem}
               onChange={handelPage}
-              className="border border-1 border-gray-800"
+              className="border border-1 border-[#EF4A23] outline-0"
             >
               <option value="8">8</option>
               <option value="10">10</option>
@@ -86,4 +88,5 @@ Products.propTypes = {
   handelNextPage:PropTypes.func,
   pages:PropTypes.array,
   setSelectedPage:PropTypes.func,
+  searchText:PropTypes.string,
 }

@@ -1,14 +1,17 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Products from "../../components/Products/Products";
 
 import { useLoaderData } from "react-router-dom";
+import { IoMdSearch } from "react-icons/io";
 
 const Shop = () => {
+  const [searchText, setSearchText] = useState("");
+  const inputRef = useRef(null);
   // pagination
   const [selectedPage, setSelectedPage] = useState(0);
   const [perpageItem, setPerpageItem] = useState(8);
-  const count = useLoaderData()
-  const numberOfPage = Math.ceil(count.data.count / perpageItem)
+  const count = useLoaderData();
+  const numberOfPage = Math.ceil(count.data.count / perpageItem);
   const pages = [...Array(numberOfPage).keys()];
   // pagination
 
@@ -28,9 +31,31 @@ const Shop = () => {
     }
   };
 
+  // search handler
+  const handelSearch = () => {
+    if (inputRef.current) {
+      setSearchText(inputRef.current.value); // Access the input value
+    }
+  };
+  console.log(searchText);
   return (
-    <div className="mt-12">
+    <div className="mt-16">
+      <section className="mb-10">
+        <div className="h-[42px] relative col-span-4">
+          <input
+            ref={inputRef}
+            placeholder="search"
+            className="px-2 w-full  block h-full outline-0 rounded-[4px]"
+          />
+          <IoMdSearch
+            onClick={handelSearch}
+            className="text-2xl text-black  absolute right-2 top-2 cursor-pointer"
+          ></IoMdSearch>
+        </div>
+      </section>
+      {/* all products container */}
       <Products
+        searchText={searchText}
         handelPage={handelPage}
         handelPreviusPage={handelPreviusPage}
         handelNextPage={handelNextPage}

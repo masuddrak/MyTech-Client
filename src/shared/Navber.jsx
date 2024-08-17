@@ -7,7 +7,7 @@ import useAuth from "../Hooks/useAuth";
 
 const Navber = () => {
     const {user,logOut}=useAuth()
-    console.log(user?.email)
+    
     return (
         <nav className="max-w-[1320px] mx-auto grid grid-cols-9 justify-between items-center gap-8  py-4 ">
             <div className="h-[52px] col-span-1">

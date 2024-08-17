@@ -33,5 +33,10 @@
 }
 body{
     z-index: 0;
-   
+}
+.primary-color{
+   color: #EF4A23;
+}
+.thard{
+    color: #081621;
 }

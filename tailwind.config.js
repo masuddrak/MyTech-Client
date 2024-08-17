@@ -10,6 +10,7 @@ export default {
         light: {
           ...require("daisyui/src/theming/themes")["light"],
         },
+       
       },
     ],
   },
