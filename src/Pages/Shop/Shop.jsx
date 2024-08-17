@@ -2,9 +2,14 @@ import { useRef, useState } from "react";
 import Products from "../../components/Products/Products";
 
 import { useLoaderData } from "react-router-dom";
-import { IoMdSearch } from "react-icons/io";
+
+import SearchSection from "../../components/Shop/SearchSection";
 
 const Shop = () => {
+  // max nad min state
+  const [minPrice, setMinPrice] = useState(0);
+  const [maxPrice, setMaxPrice] = useState(0);
+  // search state
   const [searchText, setSearchText] = useState("");
   const inputRef = useRef(null);
   // pagination
@@ -37,33 +42,57 @@ const Shop = () => {
       setSearchText(inputRef.current.value); // Access the input value
     }
   };
-  console.log(searchText);
+  // max and min price form handler
+  const handelSearchMaxMin = (e) => {
+    e.preventDefault();
+    const min = e.target.min.value;
+    const max = e.target.max.value;
+    setMinPrice(min);
+    setMaxPrice(max);
+  };
+  console.log(maxPrice, minPrice);
   return (
-    <div className="mt-16">
-      <section className="mb-10">
-        <div className="h-[42px] relative col-span-4">
+    <div className="mt-16 md:grid grid-cols-5 justify-between gap-6">
+      {/* search product name */}
+      <section className="space-y-3">
+        <SearchSection
+          inputRef={inputRef}
+          handelSearch={handelSearch}
+        ></SearchSection>
+        <form onSubmit={handelSearchMaxMin} className=" flex gap-3">
           <input
-            ref={inputRef}
-            placeholder="search"
-            className="px-2 w-full  block h-full outline-0 rounded-[4px]"
+            type="number"
+            name="min"
+            placeholder="Min"
+            required
+            className="p-2 w-full  block h-full outline-0 rounded-[4px]"
           />
-          <IoMdSearch
-            onClick={handelSearch}
-            className="text-2xl text-black  absolute right-2 top-2 cursor-pointer"
-          ></IoMdSearch>
-        </div>
+          <input
+            name="max"
+            type="number"
+            placeholder="Max"
+            className="p-2 w-full  block h-full outline-0 rounded-[4px]"
+            required
+          />
+
+          <button className="base-color px-3 rounded-[4px]">Sort</button>
+        </form>
       </section>
       {/* all products container */}
-      <Products
-        searchText={searchText}
-        handelPage={handelPage}
-        handelPreviusPage={handelPreviusPage}
-        handelNextPage={handelNextPage}
-        selectedPage={selectedPage}
-        perpageItem={perpageItem}
-        pages={pages}
-        setSelectedPage={setSelectedPage}
-      ></Products>
+      <section className="col-span-4">
+        <Products
+          maxPrice={parseInt(maxPrice)}
+          minPrice={parseInt(minPrice)}
+          searchText={searchText}
+          handelPage={handelPage}
+          handelPreviusPage={handelPreviusPage}
+          handelNextPage={handelNextPage}
+          selectedPage={selectedPage}
+          perpageItem={perpageItem}
+          pages={pages}
+          setSelectedPage={setSelectedPage}
+        ></Products>
+      </section>
     </div>
   );
 };

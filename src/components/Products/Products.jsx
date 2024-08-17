@@ -5,6 +5,8 @@ import useAllProduct from "../../Hooks/useAllProduct";
 
 
 const Products = ({
+  maxPrice,
+  minPrice,
   searchText,
   selectedPage,
   perpageItem,
@@ -14,7 +16,8 @@ const Products = ({
   pages,
   setSelectedPage
 }) => {
-  const { products, isLoading } = useAllProduct(selectedPage, perpageItem,searchText);
+  const { products, isLoading } = useAllProduct(selectedPage, perpageItem,searchText, maxPrice,
+    minPrice);
 
   if (isLoading) {
     return <h1 className="3xl font-extrabold">Loading...........</h1>;
@@ -23,7 +26,7 @@ const Products = ({
   return (
     <div>
       {/* load all product */}
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
+      <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
         {products?.map((product) => (
           <Product
             key={product._id}
@@ -89,4 +92,6 @@ Products.propTypes = {
   pages:PropTypes.array,
   setSelectedPage:PropTypes.func,
   searchText:PropTypes.string,
+  minPrice:PropTypes.number,
+  maxPrice:PropTypes.number,
 }
