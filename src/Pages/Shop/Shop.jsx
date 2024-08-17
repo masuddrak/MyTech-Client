@@ -5,8 +5,36 @@ import { useLoaderData } from "react-router-dom";
 
 import SearchSection from "../../components/Shop/SearchSection";
 import MaxMinPrice from "../../components/Shop/MaxMinPrice";
-
+import CategorySelector from "../../components/Shop/CategorySelector";
+const categorys = [
+  "Television",
+  "Audio",
+  "Mobile Phones",
+  "Laptops",
+  "Home Appliances",
+  "Lighting",
+  "Kitchen Appliances",
+  "Fitness Equipment",
+  "Gardening",
+];
+const brands = [
+  "TechVision",
+  "SoundMax",
+  "PhoneTech",
+  "GameMaster",
+  "SoundWave",
+  "UltraClean",
+  "SmartHome",
+  "CleanAir",
+  "GigaSound",
+  "QuickBake",
+  "ProFit",
+  "NatureGlow",
+];
 const Shop = () => {
+  // category sort
+  const [category, setCategory] = useState("");
+  const [brand, setBrand] = useState("");
   // max nad min state
   const [minPrice, setMinPrice] = useState(0);
   const [maxPrice, setMaxPrice] = useState(0);
@@ -51,7 +79,7 @@ const Shop = () => {
     setMinPrice(min);
     setMaxPrice(max);
   };
-  console.log(maxPrice, minPrice);
+  console.log(brand);
   return (
     <div className="mt-16 md:grid grid-cols-5 justify-between gap-6">
       {/* search product name */}
@@ -62,10 +90,31 @@ const Shop = () => {
         ></SearchSection>
         {/* sort max and min */}
         <MaxMinPrice handelSearchMaxMin={handelSearchMaxMin}></MaxMinPrice>
+        {/* chose category product */}
+        <CategorySelector
+          setCategory={setCategory}
+          categorys={categorys}
+        ></CategorySelector>
+        {/* brand basis products */}
+        <div>
+          <select
+            onChange={(e) => setBrand(e.target.value)}
+            className="p-2 w-full  block h-full outline-0 rounded-[4px]"
+          >
+            <option value="">Brands</option>
+            {brands.map((brand, index) => (
+              <option key={index} value={brand}>
+                {brand}
+              </option>
+            ))}
+          </select>
+        </div>
       </section>
       {/* all products container */}
       <section className="col-span-4">
         <Products
+          category={category}
+          brand_name={brand}
           maxPrice={parseInt(maxPrice)}
           minPrice={parseInt(minPrice)}
           searchText={searchText}

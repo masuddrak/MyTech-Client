@@ -19,7 +19,7 @@ export const router = createBrowserRouter([
         {
           path: "/shop",
           element: <Shop></Shop>,
-          loader:()=>axios("http://localhost:5000/totalProduct")
+          loader:()=>axios(`${import.meta.env.VITE_API_URL}/totalProduct`)
         },
         {
           path: "/signIn",

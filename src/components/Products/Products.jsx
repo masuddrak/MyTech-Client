@@ -5,6 +5,8 @@ import useAllProduct from "../../Hooks/useAllProduct";
 
 
 const Products = ({
+  brand_name,
+  category,
   maxPrice,
   minPrice,
   searchText,
@@ -17,12 +19,12 @@ const Products = ({
   setSelectedPage
 }) => {
   const { products, isLoading } = useAllProduct(selectedPage, perpageItem,searchText, maxPrice,
-    minPrice);
+    minPrice,category,brand_name);
 
   if (isLoading) {
     return <h1 className="3xl font-extrabold">Loading...........</h1>;
   }
-
+console.log(brand_name)
   return (
     <div>
       {/* load all product */}
@@ -94,4 +96,6 @@ Products.propTypes = {
   searchText:PropTypes.string,
   minPrice:PropTypes.number,
   maxPrice:PropTypes.number,
+  category:PropTypes.string,
+  brand_name:PropTypes.string,
 }

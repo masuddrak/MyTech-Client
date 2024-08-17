@@ -14,7 +14,7 @@ const Navber = () => {
                 <Link to="/" className="cursor-pointer"><img className="h-full p" src={logo} alt="" /></Link>
             </div>
             <div className="h-[42px] relative col-span-4">
-                <input type="text" placeholder="search" className="px-2 w-full  block h-full outline-0 rounded-[4px]" />
+                <input type="text" placeholder="search" className="px-2 w-full  block text-black h-full outline-0 rounded-[4px]" />
                 <IoMdSearch className="text-2xl text-black absolute right-2 top-2"></IoMdSearch>
             </div>
             <div className="flex gap-6 col-span-4 justify-between">
