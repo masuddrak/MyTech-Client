@@ -11,7 +11,7 @@ const Navber = () => {
     return (
         <nav className="max-w-[1320px] mx-auto grid grid-cols-9 justify-between items-center gap-8  py-4 ">
             <div className="h-[52px] col-span-1">
-                <img className="h-full p" src={logo} alt="" />
+                <Link to="/" className="cursor-pointer"><img className="h-full p" src={logo} alt="" /></Link>
             </div>
             <div className="h-[42px] relative col-span-4">
                 <input type="text" placeholder="search" className="px-2 w-full  block h-full outline-0 rounded-[4px]" />

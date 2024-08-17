@@ -4,6 +4,7 @@ import Products from "../../components/Products/Products";
 import { useLoaderData } from "react-router-dom";
 
 import SearchSection from "../../components/Shop/SearchSection";
+import MaxMinPrice from "../../components/Shop/MaxMinPrice";
 
 const Shop = () => {
   // max nad min state
@@ -59,24 +60,8 @@ const Shop = () => {
           inputRef={inputRef}
           handelSearch={handelSearch}
         ></SearchSection>
-        <form onSubmit={handelSearchMaxMin} className=" flex gap-3">
-          <input
-            type="number"
-            name="min"
-            placeholder="Min"
-            required
-            className="p-2 w-full  block h-full outline-0 rounded-[4px]"
-          />
-          <input
-            name="max"
-            type="number"
-            placeholder="Max"
-            className="p-2 w-full  block h-full outline-0 rounded-[4px]"
-            required
-          />
-
-          <button className="base-color px-3 rounded-[4px]">Sort</button>
-        </form>
+        {/* sort max and min */}
+        <MaxMinPrice handelSearchMaxMin={handelSearchMaxMin}></MaxMinPrice>
       </section>
       {/* all products container */}
       <section className="col-span-4">
