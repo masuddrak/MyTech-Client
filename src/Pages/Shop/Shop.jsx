@@ -32,6 +32,8 @@ const brands = [
   "NatureGlow",
 ];
 const Shop = () => {
+  // low to hi
+  const [sortPrice,setSortPrice]=useState("")
   // category sort
   const [category, setCategory] = useState("");
   const [brand, setBrand] = useState("");
@@ -79,7 +81,9 @@ const Shop = () => {
     setMinPrice(min);
     setMaxPrice(max);
   };
-  console.log(brand);
+
+
+  console.log(sortPrice);
   return (
     <div className="mt-16 md:grid grid-cols-5 justify-between gap-6">
       {/* search product name */}
@@ -109,10 +113,15 @@ const Shop = () => {
             ))}
           </select>
         </div>
+        {/* sort data price low to hi */}
+        <div>
+          <button onClick={()=>setSortPrice("low")} className="base-color px-3 rounded-[4px]">Low to Hi</button>
+        </div>
       </section>
       {/* all products container */}
       <section className="col-span-4">
         <Products
+          sortPrice={sortPrice}
           category={category}
           brand_name={brand}
           maxPrice={parseInt(maxPrice)}
