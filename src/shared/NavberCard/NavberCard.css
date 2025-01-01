@@ -1,0 +1,35 @@
+/* chareche icon style ing */
+
+@keyframes charg-zoom  {
+    0%, 100% {
+      transform: scale(1.2);
+      
+    }
+    50% {
+      transform: scale(0);
+      color: #fff;
+    }
+   
+  }
+  .charg-icon-zoom {
+    display: inline-block;
+    animation: charg-zoom 2s infinite ease-in-out;
+  }
+  
+/* animation button create */
+.pc-builder {
+    animation: pc-builder-animation 10s ease-in-out infinite;
+    transition: all 0.5s ease-in-out;
+  }
+  
+  @keyframes pc-builder-animation {
+    0% {
+      background: linear-gradient(350deg, #0bc1e9, #3749bb, #00237e);
+    }
+    50% {
+      background: linear-gradient(250deg, #0bc1e9, #3749bb, #00237e);
+    }
+    100% {
+      background: linear-gradient(125deg, #0bc1e9, #3749bb, #00237e);
+    }
+}

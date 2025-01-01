@@ -1,8 +1,7 @@
 import Product from "./Product";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 import useAllProduct from "../../Hooks/useAllProduct";
-
 
 const Products = ({
   sortPrice,
@@ -17,15 +16,23 @@ const Products = ({
   handelPreviusPage,
   handelNextPage,
   pages,
-  setSelectedPage
+  setSelectedPage,
 }) => {
-  const { products, isLoading } = useAllProduct(selectedPage, perpageItem,searchText, maxPrice,
-    minPrice,category,brand_name,sortPrice);
+  const { products, isLoading } = useAllProduct(
+    selectedPage,
+    perpageItem,
+    searchText,
+    maxPrice,
+    minPrice,
+    category,
+    brand_name,
+    sortPrice
+  );
 
   if (isLoading) {
-    return <h1 className="3xl font-extrabold">Loading...........</h1>;
+    return <h1 className="5xl font-extrabold">Loading...........</h1>;
   }
-console.log(brand_name)
+  console.log(brand_name);
   return (
     <div>
       {/* load all product */}
@@ -67,7 +74,7 @@ console.log(brand_name)
               onClick={handelNextPage}
               className="bg-[#081621] text-white px-2 "
             >
-             Next
+              Next
             </button>
             <select
               name="item"
@@ -87,17 +94,17 @@ console.log(brand_name)
 };
 export default Products;
 Products.propTypes = {
-  selectedPage:PropTypes.number,
-  perpageItem:PropTypes.number,
-  handelPage:PropTypes.func,
-  handelPreviusPage:PropTypes.func,
-  handelNextPage:PropTypes.func,
-  pages:PropTypes.array,
-  setSelectedPage:PropTypes.func,
-  searchText:PropTypes.string,
-  minPrice:PropTypes.number,
-  maxPrice:PropTypes.number,
-  category:PropTypes.string,
-  brand_name:PropTypes.string,
-  sortPrice:PropTypes.string,
-}
+  selectedPage: PropTypes.number,
+  perpageItem: PropTypes.number,
+  handelPage: PropTypes.func,
+  handelPreviusPage: PropTypes.func,
+  handelNextPage: PropTypes.func,
+  pages: PropTypes.array,
+  setSelectedPage: PropTypes.func,
+  searchText: PropTypes.string,
+  minPrice: PropTypes.number,
+  maxPrice: PropTypes.number,
+  category: PropTypes.string,
+  brand_name: PropTypes.string,
+  sortPrice: PropTypes.string,
+};

@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-
+/* slicder  */
 .swiper-pagination-bullet{
     width: 30px !important;
     height: 10px !important;
@@ -11,10 +11,12 @@
     background: #ef4a23 !important;
     opacity: var(--swiper-pagination-bullet-inactive-opacity, 0.2);
 }
+/* base clor  */
 .base-color{
     background-color: #ef4a23;
     color: white;
 }
+
 .store-finder {
     background: linear-gradient(125deg, #0bc1e9, #3749bb, #00237e);
     animation: gradient 15s ease infinite;
@@ -40,3 +42,4 @@ body{
 .thard{
     color: #081621;
 }
+

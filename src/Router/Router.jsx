@@ -6,6 +6,7 @@ import SignIn from "../Pages/SignIn/SignIn";
 import SignUp from "../Pages/SignUp/SignUp";
 import Shop from "../Pages/Shop/Shop";
 import axios from "axios";
+import AddPost from "../TrnastackQuery/AddPost";
 
 export const router = createBrowserRouter([
     {
@@ -33,6 +34,10 @@ export const router = createBrowserRouter([
           path: "/details",
           element: <ProductDetails></ProductDetails>,
         },
+        {
+          path:"addpost",
+          element:<AddPost></AddPost>
+        }
       ],
     },
   ]);

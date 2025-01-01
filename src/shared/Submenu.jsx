@@ -5,7 +5,8 @@ const Submenu = () => {
         <div className="bg-white py-4 shadow-md w-full absolute">
             <ul className="flex gap-3 justify-between font-bold text-sm max-w-[1320px] mx-auto">
                 <Link to="/shop"><li>Shop Page</li></Link>
-                <li>Desktop</li>
+                <Link to="/addpost"><li>Add Post</li></Link>
+                
                 <li>Component</li>
                 <li>Monitor</li>
                 <li>UPS</li>
