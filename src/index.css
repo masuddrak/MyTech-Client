@@ -36,7 +36,10 @@
 body{
     z-index: 0;
 }
-.primary-color{
+.primaryB{
+   background: #641605;
+}
+.primaryT{
    color: #EF4A23;
 }
 .thard{
