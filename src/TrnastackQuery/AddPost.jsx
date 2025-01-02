@@ -17,7 +17,6 @@ export default function AddPost() {
     if (response.status === 200) {
       refetch();
     }
-    console.log(response);
   };
   return (
     <div className="my-16">

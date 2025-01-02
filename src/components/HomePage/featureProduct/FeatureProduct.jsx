@@ -17,7 +17,6 @@ const FeatureProduct = () => {
   if (isLoading) {
     return <h1>Loading................</h1>;
   }
-  console.log(products, isLoading);
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
       {products?.map((product) => (

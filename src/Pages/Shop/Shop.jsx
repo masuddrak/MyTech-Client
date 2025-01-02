@@ -33,7 +33,7 @@ const brands = [
 ];
 const Shop = () => {
   // low to hi
-  const [sortPrice,setSortPrice]=useState("")
+  const [sortPrice, setSortPrice] = useState("");
   // category sort
   const [category, setCategory] = useState("");
   const [brand, setBrand] = useState("");
@@ -82,8 +82,6 @@ const Shop = () => {
     setMaxPrice(max);
   };
 
-
-  console.log(sortPrice);
   return (
     <div className="mt-16 md:grid grid-cols-5 justify-between gap-6">
       {/* search product name */}
@@ -115,7 +113,12 @@ const Shop = () => {
         </div>
         {/* sort data price low to hi */}
         <div>
-          <button onClick={()=>setSortPrice("low")} className="base-color px-3 rounded-[4px]">Low to Hi</button>
+          <button
+            onClick={() => setSortPrice("low")}
+            className="base-color px-3 rounded-[4px]"
+          >
+            Low to Hi
+          </button>
         </div>
       </section>
       {/* all products container */}

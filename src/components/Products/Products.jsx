@@ -32,7 +32,7 @@ const Products = ({
   if (isLoading) {
     return <h1 className="5xl font-extrabold">Loading...........</h1>;
   }
-  console.log(brand_name);
+
   return (
     <div>
       {/* load all product */}

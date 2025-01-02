@@ -7,7 +7,6 @@ import "./AddedProductList.css";
 const CartBtn = () => {
   const modalValue = useSelector((state) => state.productModal.modalValue);
   const dispatch = useDispatch();
-  console.log(modalValue);
   return (
     <div>
       <div className="z-30 -right-80">
