@@ -1,17 +1,23 @@
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
-const Product = ({ name, price, discount_price, product_image, }) => {
+const Product = ({ name, price, discount_price, product_image }) => {
   return (
-    <div className="bg-white p-[15px] relative rounded-md flex flex-col justify-between">
+    <Link
+      to="/details"
+      className="bg-white p-[15px] relative rounded-md flex flex-col justify-between cursor-pointer hover:shadow-md"
+    >
       <p className="absolute left-0 top-3 bg-[#6e2594] text-white text-[12px] px-2 rounded-r-xl">
         10% Discount Get Month
       </p>
-      <div className="md:w-[200px] md:h-[200px] mt-4 flex justify-center items-center">
-        <img
-          className="w-full h-full object-cover flex justify-center items-center"
-          src={product_image}
-          alt=""
-        />
+      <div className="justify-center flex items-center">
+        <div className="md:w-[200px] md:h-[200px] mt-4 flex justify-center items-center">
+          <img
+            className="w-full h-full object-cover flex justify-center items-center"
+            src={product_image}
+            alt=""
+          />
+        </div>
       </div>
       <div>
         <h6 className="mt-8 font-semibold hover:underline text-[15px] pb-[15px]">
@@ -25,7 +31,7 @@ const Product = ({ name, price, discount_price, product_image, }) => {
           <p className="text-sm line-through">{discount_price}৳</p>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
