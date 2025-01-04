@@ -32,7 +32,6 @@ const Products = ({
   if (isLoading) {
     return <h1 className="5xl font-extrabold">Loading...........</h1>;
   }
-
   return (
     <div>
       {/* load all product */}
@@ -40,6 +39,7 @@ const Products = ({
         {products?.map((product) => (
           <Product
             key={product._id}
+            id={product._id}
             name={product.name}
             price={product.price}
             discount_price={product.discount_price}

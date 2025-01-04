@@ -5,7 +5,7 @@ import Product from "../../Products/Product";
 
 const FeatureProduct = () => {
   const { products, isLoading } = useAllProduct(
-    "",
+    "0",
     "10",
     "",
     "",
@@ -14,9 +14,10 @@ const FeatureProduct = () => {
     "",
     ""
   );
-  if (isLoading) {
+  if (isLoading && products.length < 1) {
     return <h1>Loading................</h1>;
   }
+  console.log(products.length);
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
       {products?.map((product) => (

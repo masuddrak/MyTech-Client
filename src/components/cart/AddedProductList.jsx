@@ -5,6 +5,7 @@ import "./AddedProductList.css";
 const AddedProductList = () => {
   const modalRef = useRef(null);
   const modalValue = useSelector((state) => state.productModal.modalValue);
+  const getProductList = useSelector((state) => state?.addedProductLists);
   const dispatch = useDispatch();
 
   const handleClickOutside = (event) => {
@@ -23,6 +24,7 @@ const AddedProductList = () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [modalValue]);
+  console.log("getProductList", getProductList);
   return (
     <div
       className="primaryB"
@@ -40,6 +42,13 @@ const AddedProductList = () => {
       <h1>This is counter App with Redux</h1>
       <div style={{ position: "absolute", right: 0, top: 0, margin: "10px" }}>
         <button onClick={() => dispatch(hidModal(false))}>Hide</button>
+      </div>
+      <div>
+        {getProductList?.addedProductList?.map((product) => (
+          <div key={product._id}>
+            <h5>{product.name}</h5>
+          </div>
+        ))}
       </div>
     </div>
   );

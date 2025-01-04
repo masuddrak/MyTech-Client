@@ -1,10 +1,11 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-const Product = ({ name, price, discount_price, product_image }) => {
+const Product = ({ id, name, price, discount_price, product_image }) => {
+  // console.log(name);
   return (
     <Link
-      to="/details"
+      to={`/details/${name}`}
       className="bg-white p-[15px] relative rounded-md flex flex-col justify-between cursor-pointer hover:shadow-md"
     >
       <p className="absolute left-0 top-3 bg-[#6e2594] text-white text-[12px] px-2 rounded-r-xl">
