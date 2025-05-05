@@ -1,4 +1,3 @@
-import React from 'react'
 import "./NavberCard.css";
 import { Link } from 'react-router-dom';
 export default function NavberCard({ IoPersonSharp, title, decription1, decription2,animatinIcon }) {

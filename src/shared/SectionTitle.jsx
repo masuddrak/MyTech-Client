@@ -3,9 +3,9 @@ import React from "react";
 const SectionTitle = ({ title, description }) => {
   return (
     <div className="text-center">
-      <h3 className="text-xl font-bold">Featured Category</h3>
+      <h3 className="base-title">{ title}</h3>
       <p className="mb-[30px]">
-        Get Your Desired Product from Featured Category!
+        {description}
       </p>
     </div>
   );

@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+/* base title */
+.base-title {
+    @apply text-xl font-bold;
+  }
+
 /* slicder  */
 .swiper-pagination-bullet{
     width: 30px !important;

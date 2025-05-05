@@ -4,7 +4,7 @@ import addedProductCardSlice from "./slice/addedProductCardSlice";
 
 export const store = configureStore({
   reducer: {
-    productModal: modalSlice,
+    baseModal: modalSlice,
     addedProductLists: addedProductCardSlice,
   },
 });

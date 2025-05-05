@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-const Product = ({ id, name, price, discount_price, product_image }) => {
+const Product = ({  name, price, discount_price, product_image }) => {
   // console.log(name);
   return (
     <Link

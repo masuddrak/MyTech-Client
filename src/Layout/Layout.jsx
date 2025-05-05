@@ -6,13 +6,28 @@ import Footer from "../shared/Footer";
 
 import CartBtn from "../components/cart/CartBtn";
 import ClearCart from "../components/cart/ClearCart";
+import AddedProductList from "../components/cart/AddedProductList";
+import { useSelector } from "react-redux";
+import MobileSidebar from "../shared/MobileSidebar";
 
 const Layout = () => {
+  const modalValue = useSelector((state) => state.baseModal.modalValue);
+
+  const sidebarModalValue = useSelector(
+    (state) => state.baseModal.sidebarModalValue
+  );
+
+  console.log(sidebarModalValue, "sidebarModalValue layout");
   return (
     <div>
-      <div className="space-y-4">
-        {/* <ClearCart></ClearCart> */}
-        <CartBtn></CartBtn>
+      <div>
+        <div className="md:flex hidden ">
+          <div className="fixed space-y-4 z-50 bottom-4 right-4">
+            <ClearCart></ClearCart>
+            <CartBtn></CartBtn>
+          </div>
+        </div>
+        {modalValue && <AddedProductList></AddedProductList>}
       </div>
       <div className="bg-black text-white hidden xl:flex">
         <Navber></Navber>
@@ -20,9 +35,11 @@ const Layout = () => {
       <div className="sticky top-0 z-20 hidden xl:flex">
         <Submenu></Submenu>
       </div>
-      <div className="xl:hidden fixed w-full top-0 h-screen z-[120]">
-        <SubNavber></SubNavber>
-      </div>
+
+      <SubNavber></SubNavber>
+      {/* mobile siderbar */}
+      <MobileSidebar></MobileSidebar>
+
       <div className="max-w-[1320px] mx-auto">
         <Outlet></Outlet>
       </div>

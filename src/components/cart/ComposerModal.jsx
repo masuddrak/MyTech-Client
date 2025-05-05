@@ -1,19 +1,18 @@
 import { useCallback, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { hidModal } from "../../store/slice/modalSlice";
+import { hidComposerModal } from "../../store/slice/modalSlice";
 import "./AddedProductList.css";
 import { IoIosClose } from "react-icons/io";
 
-const AddedProductList = () => {
+const ComposerModal = () => {
   const modalRef = useRef(null);
-  const modalValue = useSelector((state) => state.baseModal.modalValue);
-  const getProductList = useSelector((state) => state?.addedProductLists);
+  const modalValue = useSelector((state) => state.baseModal.composerModalValue);
   const dispatch = useDispatch();
-
+  console.log(modalValue, "modalValue");
   const handleClickOutside = useCallback(
     (event) => {
       if (modalRef.current && !modalRef.current.contains(event.target)) {
-        dispatch(hidModal(false));
+        dispatch(hidComposerModal(false));
       }
     },
     [dispatch, modalRef]
@@ -29,9 +28,9 @@ const AddedProductList = () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [modalValue, handleClickOutside]);
-  console.log("getProductList", getProductList);
+
   return (
-    <div className=" z-50 h-full fixed top-0 right-0 w-full bg-slate-800/25">
+    <div className="absolute z-40  h-full  top-0 right-0 w-full bg-slate-800/25">
       <div className="w-full h-full">
         <div
           ref={modalRef}
@@ -39,16 +38,9 @@ const AddedProductList = () => {
         >
           <div className="bg-black flex justify-between items-center text-white px-4 py-2 ">
             <h1>YOUR CART</h1>
-            <button onClick={() => dispatch(hidModal(false))}>
+            <button onClick={() => dispatch(hidComposerModal(false))}>
               <IoIosClose></IoIosClose>
             </button>
-          </div>
-          <div>
-            {getProductList?.addedProductList?.map((product) => (
-              <div key={product._id}>
-                <h5>{product.name}</h5>
-              </div>
-            ))}
           </div>
         </div>
       </div>
@@ -56,4 +48,4 @@ const AddedProductList = () => {
   );
 };
 
-export default AddedProductList;
+export default ComposerModal;
