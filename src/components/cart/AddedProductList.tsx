@@ -40,7 +40,6 @@ const AddedProductList = () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [modalValue, handleClickOutside]);
-  console.log("getProductList", getProductList);
   return (
     <div className=" z-50 h-full fixed top-0 right-0 w-full bg-slate-800/25">
       <div className="w-full h-full">

@@ -8,7 +8,6 @@ const ComposerModal = () => {
   const modalRef = useRef<HTMLDivElement | null>(null);
   const modalValue = useSelector((state:({baseModal:{composerModalValue:boolean}})) => state.baseModal.composerModalValue);
   const dispatch = useDispatch();
-  console.log(modalValue, "modalValue");
   const handleClickOutside = useCallback(
     (event:MouseEvent) => {
       if (modalRef.current && !modalRef.current.contains(event.target as Node)) {

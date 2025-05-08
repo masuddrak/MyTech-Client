@@ -38,7 +38,6 @@ const PaymentCart: React.FC<PaymentCartProps> = ({
     );
     if (existProduct) {
       dispatch(controlQuntity(currentProductQuntity));
-      console.log("currentProductQuntity", currentProductQuntity);
     } else {
       dispatch(incremtQuntity(currentProductQuntity));
       dispatch(addProduct(product));

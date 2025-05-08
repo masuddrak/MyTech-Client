@@ -8,7 +8,6 @@ id:string;
   product_image: string ;
 }
 const Product:React.FC<ProductType> = ({  name, price, discount_price, product_image }) => {
-  // console.log(name);
   return (
     <Link
       to={`/details/${name}`}
