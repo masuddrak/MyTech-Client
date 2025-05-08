@@ -1,5 +1,7 @@
-import PropTypes from "prop-types";
-const MaxMinPrice = ({ handelSearchMaxMin }) => {
+interface Props {
+  handelSearchMaxMin: (event: React.FormEvent<HTMLFormElement>) => void;
+}
+const MaxMinPrice: React.FC<Props> = ({ handelSearchMaxMin }) => {
   return (
     <form onSubmit={handelSearchMaxMin} className=" flex gap-3">
       <input
@@ -23,6 +25,3 @@ const MaxMinPrice = ({ handelSearchMaxMin }) => {
 };
 
 export default MaxMinPrice;
-MaxMinPrice.propTypes = {
-  handelSearchMaxMin: PropTypes.func,
-};

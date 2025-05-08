@@ -9,15 +9,20 @@ import ClearCart from "../components/cart/ClearCart";
 import AddedProductList from "../components/cart/AddedProductList";
 import { useSelector } from "react-redux";
 import MobileSidebar from "../shared/MobileSidebar";
+import { useEffect } from "react";
+import axios from "axios";
 
 const Layout = () => {
-  const modalValue = useSelector((state) => state.baseModal.modalValue);
-
-  const sidebarModalValue = useSelector(
-    (state) => state.baseModal.sidebarModalValue
+  const modalValue = useSelector(
+    (state: { baseModal: { modalValue: boolean } }) =>
+      state.baseModal.modalValue
   );
 
-  console.log(sidebarModalValue, "sidebarModalValue layout");
+  const sidebarModalValue = useSelector(
+    (state: { baseModal: { sidebarModalValue: boolean } }) =>
+      state.baseModal.sidebarModalValue
+  );
+ 
   return (
     <div>
       <div>

@@ -1,6 +1,10 @@
 import PropTypes from "prop-types";
+interface CategorySelectorProps {
+  setCategory: (category: string) => void;
+  categorys: string[];
+};
 
-const CategorySelector = ({ setCategory, categorys }) => {
+const CategorySelector:React.FC<CategorySelectorProps> = ({ setCategory, categorys }) => {
   return (
     <div>
       <select
@@ -19,7 +23,4 @@ const CategorySelector = ({ setCategory, categorys }) => {
 };
 
 export default CategorySelector;
-CategorySelector.propTypes = {
-  setCategory: PropTypes.func,
-  categorys: PropTypes.array,
-};
+

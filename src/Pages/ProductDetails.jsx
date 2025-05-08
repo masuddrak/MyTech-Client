@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import imag2 from "../../public/pc.png";
+
 import imag3 from "../../public/product-boot.png";
 import PaymentCart from "./PaymentCart";
 import useAllProduct from "../Hooks/useAllProduct";

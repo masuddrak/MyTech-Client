@@ -7,21 +7,31 @@ import {
   controlQuntity,
 } from "../store/slice/addedProductCardSlice";
 
-const PaymentCart = ({
+interface PaymentCartProps {
+  regularPayment: (value: boolean) => void;
+  discountPayment: (value: boolean) => void;
+  regularPay: boolean;
+  discountPay: boolean;
+  product: { price: number; discount_price: number; _id: string };
+}
+
+const PaymentCart: React.FC<PaymentCartProps> = ({
   regularPayment,
   discountPayment,
   regularPay,
   discountPay,
   product,
 }) => {
-  const getProductList = useSelector((state) => state?.addedProductLists);
+  const getProductList = useSelector((state: { addedProductLists: { addedProductList: { _id: string }[] } }) => state?.addedProductLists);
 
   const dispatch = useDispatch();
   const [currentProductQuntity, setCurrentProductQuntity] = useState(1);
-  let currentOrderPorduct = useRef(currentProductQuntity);
+  let currentOrderPorduct = useRef<HTMLInputElement>(null);
 
   const getAddProduct = async () => {
-    setCurrentProductQuntity(parseInt(currentOrderPorduct.current.value));
+    if (currentOrderPorduct.current) {
+      setCurrentProductQuntity(parseInt(currentOrderPorduct.current.value));
+    }
 
     const existProduct = getProductList.addedProductList.some(
       (productID) => productID._id == product._id
@@ -100,7 +110,7 @@ const PaymentCart = ({
           <input
             type="text"
             value={currentProductQuntity}
-            onChange={() => event.target.value}
+            onChange={(event) => setCurrentProductQuntity(Number(event.target.value) || 1)}
             ref={currentOrderPorduct}
             className="w-[30px] outline-none py-1 text-center border-x-[1px] border-red-400"
           />

@@ -4,8 +4,8 @@ import { showComposerModal } from "../../store/slice/modalSlice";
 import ComposerModal from "./ComposerModal";
 
 const ClearCart = () => {
-  const modalValue = useSelector((state) => state.baseModal.composerModalValue);
-  console.log(modalValue, "modalValue");
+  const modalValue = useSelector((state: { baseModal: { composerModalValue: boolean } }) => state.baseModal.composerModalValue);
+
   const dispatch = useDispatch();
 
   return (

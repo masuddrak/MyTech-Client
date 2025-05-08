@@ -1,4 +1,3 @@
-import React from "react";
 
 import useAllProduct from "../../../Hooks/useAllProduct";
 import Product from "../../Products/Product";

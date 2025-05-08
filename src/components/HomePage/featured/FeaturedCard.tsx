@@ -1,6 +1,9 @@
-
+interface FeaturedCardProps {
+    title: string;
+    image: string;
+}
 // eslint-disable-next-line react/prop-types
-const FeaturedCard = ({ title, image }) => {
+const FeaturedCard: React.FC<FeaturedCardProps> = ({ title, image }) => {
     return (
         <div className="bg-white pt-6 pb-4 flex justify-center shadow-md rounded-2xl">
             <div className="text-center space-y-2">

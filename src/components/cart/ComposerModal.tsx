@@ -5,13 +5,13 @@ import "./AddedProductList.css";
 import { IoIosClose } from "react-icons/io";
 
 const ComposerModal = () => {
-  const modalRef = useRef(null);
-  const modalValue = useSelector((state) => state.baseModal.composerModalValue);
+  const modalRef = useRef<HTMLDivElement | null>(null);
+  const modalValue = useSelector((state:({baseModal:{composerModalValue:boolean}})) => state.baseModal.composerModalValue);
   const dispatch = useDispatch();
   console.log(modalValue, "modalValue");
   const handleClickOutside = useCallback(
-    (event) => {
-      if (modalRef.current && !modalRef.current.contains(event.target)) {
+    (event:MouseEvent) => {
+      if (modalRef.current && !modalRef.current.contains(event.target as Node)) {
         dispatch(hidComposerModal(false));
       }
     },

@@ -4,15 +4,26 @@ import { hidModal } from "../../store/slice/modalSlice";
 import "./AddedProductList.css";
 import { IoIosClose } from "react-icons/io";
 
+interface State {
+  baseModal: {
+    modalValue: boolean;
+  };
+  addedProductLists: {
+    addedProductList: Array<{
+      _id: string;
+      name: string;
+    }> | null;
+  };
+ }
 const AddedProductList = () => {
-  const modalRef = useRef(null);
-  const modalValue = useSelector((state) => state.baseModal.modalValue);
-  const getProductList = useSelector((state) => state?.addedProductLists);
+  const modalRef = useRef<HTMLDivElement | null>(null);
+  const modalValue = useSelector((state:State) => state.baseModal.modalValue);
+  const getProductList = useSelector((state:State) => state?.addedProductLists);
   const dispatch = useDispatch();
 
   const handleClickOutside = useCallback(
-    (event) => {
-      if (modalRef.current && !modalRef.current.contains(event.target)) {
+    (event: MouseEvent) => {
+      if (modalRef.current && !modalRef.current.contains(event.target as Node)) {
         dispatch(hidModal(false));
       }
     },

@@ -1,7 +1,13 @@
-import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
 
-const Product = ({  name, price, discount_price, product_image }) => {
+import { Link } from "react-router-dom";
+interface ProductType {
+id:string;
+  name: string;
+  price: number | null | undefined;
+  discount_price: number | null | undefined;
+  product_image: string ;
+}
+const Product:React.FC<ProductType> = ({  name, price, discount_price, product_image }) => {
   // console.log(name);
   return (
     <Link
@@ -37,10 +43,4 @@ const Product = ({  name, price, discount_price, product_image }) => {
 };
 
 export default Product;
-// name,price,discount_price,product_image
-Product.propTypes = {
-  name: PropTypes.string,
-  price: PropTypes.number,
-  discount_price: PropTypes.number,
-  product_image: PropTypes.string,
-};
+

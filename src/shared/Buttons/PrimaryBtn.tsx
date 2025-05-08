@@ -1,7 +1,7 @@
 
 
 // eslint-disable-next-line react/prop-types
-const PrimaryBtn = ({name}) => {
+const PrimaryBtn: React.FC<{ name: string }> = ({ name }) => {
     return (
         <button className="base-color px-4 py-2 rounded-sm">{name}</button>
     );
