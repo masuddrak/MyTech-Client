@@ -4,6 +4,7 @@ import imag3 from "../../public/product-boot.png";
 import PaymentCart from "./PaymentCart";
 import useAllProduct from "../Hooks/useAllProduct";
 import { useState } from "react";
+import Loader from "../shared/Loader";
 
 const ProductDetails = () => {
   const { name } = useParams();
@@ -12,9 +13,7 @@ const ProductDetails = () => {
   const { products, isLoading } = useAllProduct("", "", "", "", "", "", "", "");
   if (isLoading) {
     return (
-      <div className="h-[100vh] bg-white absolute w-full z-['999']">
-        <h1 className="text-7xl">Loading.........</h1>
-      </div>
+      <Loader></Loader>
     );
   }
   const currentProduct = products.filter((product) => product.name == name)[0];
@@ -28,15 +27,15 @@ const ProductDetails = () => {
   };
   return (
     <div>
-      <section className="py-56 grid grid-cols-3 gap-6">
-        <article className="w-full flex flex-col justify-between ">
+      <section className="py-20 md:py-56 md:grid grid-cols-3 gap-6 mx-3 md:mx-0">
+        <article className="w-[300px] mx-auto md:w-full flex flex-col justify-between ">
           <img className="w-full" src={currentProduct.product_image} alt="" />
           <img className="w-full" src={imag3} alt="" />
         </article>
         <article className="col-span-2 ">
           <div className="space-y-3 ">
             <h3 className="text-2xl text-[#2C3A96]">{currentProduct.name}</h3>
-            <div className="flex gap-2">
+            <div className="flex gap-2 flex-wrap">
               <p className="bg-white px-2 rounded-full">
                 Price:{" "}
                 <span className="font-semibold">

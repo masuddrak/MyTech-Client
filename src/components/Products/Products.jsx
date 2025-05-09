@@ -2,6 +2,7 @@ import Product from "./Product";
 import PropTypes from "prop-types";
 
 import useAllProduct from "../../Hooks/useAllProduct";
+import Loader from "../../shared/Loader";
 
 const Products = ({
   sortPrice,
@@ -30,7 +31,7 @@ const Products = ({
   );
 
   if (isLoading) {
-    return <h1 className="5xl font-extrabold">Loading...........</h1>;
+    return <Loader></Loader>;
   }
   return (
     <div>

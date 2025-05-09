@@ -45,7 +45,7 @@ const PaymentCart: React.FC<PaymentCartProps> = ({
   };
   return (
     <div>
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div
           className={`border-[2px] border-black p-3 flex gap-2 items-center cursor-pointer my-3 ${
             regularPay && "border-red-700"

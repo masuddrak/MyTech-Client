@@ -1,5 +1,6 @@
 
 import useAllProduct from "../../../Hooks/useAllProduct";
+import Loader from "../../../shared/Loader";
 import Product from "../../Products/Product";
 
 const FeatureProduct = () => {
@@ -14,7 +15,7 @@ const FeatureProduct = () => {
     ""
   );
   if (isLoading && products.length < 1) {
-    return <h1>Loading................</h1>;
+    return <Loader></Loader>;
   }
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
